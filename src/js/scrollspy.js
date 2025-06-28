@@ -65,9 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form).then(
         function () {
-          alert("Message sent successfully!");
-          form.reset();
-          if (window.grecaptcha) grecaptcha.reset();
+          // Redirect to thank you page on success
+          window.location.href = "src/js/pages/thanks.html";
         },
         function (error) {
           alert("Failed to send message. Please try again.");
