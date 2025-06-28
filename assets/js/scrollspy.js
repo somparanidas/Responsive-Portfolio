@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         scrollPos >= top - 100 &&
         scrollPos < top + section.offsetHeight - 100
       ) {
-        const id = section.id.replace("-section", "");
+        const id = section.id;
         if (window.location.hash !== `#${id}`) {
           history.replaceState(null, "", `#${id}`);
         }
@@ -40,9 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const href = this.getAttribute("href");
       if (href && href.startsWith("#")) {
         e.preventDefault();
-        const target = document.getElementById(
-          href.replace("#", "") + "-section"
-        );
+        const target = document.getElementById(href.replace("#", ""));
         if (target) {
           target.scrollIntoView({ behavior: "smooth" });
         }
@@ -65,18 +63,16 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
       e.preventDefault();
-      emailjs
-        .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form)
-        .then(
-          function () {
-            alert("Message sent successfully!");
-            form.reset();
-            if (window.grecaptcha) grecaptcha.reset();
-          },
-          function (error) {
-            alert("Failed to send message. Please try again.");
-          }
-        );
+      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form).then(
+        function () {
+          alert("Message sent successfully!");
+          form.reset();
+          if (window.grecaptcha) grecaptcha.reset();
+        },
+        function (error) {
+          alert("Failed to send message. Please try again.");
+        }
+      );
     });
   }
 });
