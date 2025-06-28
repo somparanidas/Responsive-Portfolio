@@ -51,22 +51,32 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// === EmailJS Contact Form Handler ===
+// === EmailJS Contact Form Handler with reCAPTCHA ===
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".contact__form");
   if (form) {
     emailjs.init("YOUR_EMAILJS_USER_ID"); // <-- Replace with your EmailJS user ID
     form.addEventListener("submit", function (e) {
+      // Check reCAPTCHA
+      const recaptcha = form.querySelector(".g-recaptcha-response");
+      if (!recaptcha || !recaptcha.value) {
+        alert("Please complete the reCAPTCHA.");
+        e.preventDefault();
+        return;
+      }
       e.preventDefault();
-      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form).then(
-        function () {
-          alert("Message sent successfully!");
-          form.reset();
-        },
-        function (error) {
-          alert("Failed to send message. Please try again.");
-        }
-      );
+      emailjs
+        .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form)
+        .then(
+          function () {
+            alert("Message sent successfully!");
+            form.reset();
+            if (window.grecaptcha) grecaptcha.reset();
+          },
+          function (error) {
+            alert("Failed to send message. Please try again.");
+          }
+        );
     });
   }
 });
