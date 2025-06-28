@@ -2,7 +2,7 @@
 
 A modern and professional portfolio website built with HTML, CSS, and JavaScript. This website is fully responsive and features smooth animations, a clean design, and an intuitive user interface.
 
-![Portfolio Preview](assets/img/perfil.png)
+![Portfolio Preview](src/img/perfil.png)
 
 ## Features
 
@@ -26,10 +26,10 @@ A modern and professional portfolio website built with HTML, CSS, and JavaScript
 ## Project Structure
 
 ```
-├── assets/
+├── src/
 │   ├── boxicons-2.1.4/     # Icon library
 │   ├── css/                # Stylesheets
-│   ├── img/                # Image assets
+│   ├── img/                # Image src
 │   ├── js/                 # JavaScript files
 │   └── Pages/             # Additional pages
 ├── index.html             # Main entry point
@@ -48,10 +48,10 @@ A modern and professional portfolio website built with HTML, CSS, and JavaScript
 
 ## Customization
 
-1. Replace images in the `assets/img/` directory with your own images
-2. Modify `assets/css/styles.css` to change the styling
+1. Replace images in the `src/img/` directory with your own images
+2. Modify `src/css/styles.css` to change the styling
 3. Update content in `index.html` to personalize your portfolio
-4. Adjust animations in `assets/js/main.js` as needed
+4. Adjust animations in `src/js/main.js` as needed
 
 ## Contributing
 
