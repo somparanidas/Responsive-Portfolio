@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function loadSection(section) {
     // Remove all dynamic sections
     document.querySelectorAll(".dynamic-section").forEach((el) => el.remove());
-    let file = `assets/js/pages/${section}.html`;
+    let file = `src/js/pages/${section}.html`;
     try {
       const res = await fetch(file);
       if (!res.ok) throw new Error("Not found");
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } catch (e) {}
     // If not found, load 404
-    const res = await fetch("assets/js/pages/notfound.html");
+    const res = await fetch("src/js/pages/notfound.html");
     const html = await res.text();
     const temp = document.createElement("div");
     temp.innerHTML = html;
