@@ -46,6 +46,25 @@ A modern and professional portfolio website built with HTML, CSS, and JavaScript
 
 2. Open `index.html` in your preferred web browser.
 
+## Environment Variables
+
+To use features like reCAPTCHA and EmailJS, you need to set up environment variables:
+
+1. Copy the example environment file:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Open `.env` and fill in your actual API keys for:
+   - `RECAPTCHA_SITE_KEY` and `RECAPTCHA_SECRET_KEY` (Google reCAPTCHA)
+   - `EMAILJS_PUBLIC_KEY`, `EMAILJS_SERVICE_ID`, and `EMAILJS_TEMPLATE_ID` (EmailJS)
+
+**Note:**
+
+- Never commit your `.env` file to version control. It is already included in `.gitignore`.
+- The `.env.example` file is provided as a template for other developers.
+
 ## Customization
 
 1. Replace images in the `src/img/` directory with your own images

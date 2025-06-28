@@ -1,26 +1,31 @@
 <section class="contact section" id="contact-section" data-title="Contact">
   <h2 class="section-title">Contact</h2>
   <div class="contact__container bd-grid">
-    <form class="contact__form">
+    <form class="contact__form" id="contactForm">
       <input
         type="text"
         placeholder="Name"
         class="contact__input"
         name="name"
+        required
       />
       <input
-        type="mail"
+        type="email"
         placeholder="Email"
         class="contact__input"
         name="email"
+        required
       />
       <textarea
         name="message"
         cols="0"
         rows="10"
         class="contact__input"
+        required
       ></textarea>
+      <div class="g-recaptcha-container"></div>
       <input type="submit" value="Send" class="contact__button button" />
     </form>
   </div>
 </section>
+<script type="module" src="/src/js/contact.js"></script>
